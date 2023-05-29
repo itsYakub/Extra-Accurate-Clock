@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "H1ydFCxG7GTtlfKfm6g+LUQV0VNFpf3yw2BN5TLXOSbkTx0SC9cD6cUk9BNU+mYG76sY2ou8y1axFm6bYWgCyQ==",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\csharp\\Extra-Accurate-Clock\\Extra-Accurate-Clock.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.toolkit.highperformance\\7.1.2\\microsoft.toolkit.highperformance.7.1.2.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\raylib-cslo\\4.2.0.9\\raylib-cslo.4.2.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}
