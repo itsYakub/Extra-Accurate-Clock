@@ -7,11 +7,11 @@ namespace ExtraAccurateClock
     {
         private static Clock clock = new Clock();
 
-        private const int WINDOW_WIDTH = 1600;
-        private int WINDOW_HEIGHT = 900;
+        private const int WINDOW_WIDTH = 1024;
+        private const int WINDOW_HEIGHT = 768;
         private const int WINDOW_FRAMERATE = 60;
 
-        private const string WINDOW_TITLE = "Extra Accurate Clock";
+        private const string WINDOW_TITLE = "Extra Accurate Clock!";
 
         private bool debugEnabled = false;
 
@@ -19,6 +19,7 @@ namespace ExtraAccurateClock
         {
             InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
             SetTargetFPS(WINDOW_FRAMERATE);
+            SetWindowIcon(LoadImage(@"assets\graphics\icons\clock.png"));
         }
 
         public void Run()

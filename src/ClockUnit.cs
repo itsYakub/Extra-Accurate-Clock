@@ -10,21 +10,36 @@ namespace ExtraAccurateClock
 
         public static int font_size = 64;
 
-        private string? text;
+        private string text = "";
 
         public void Render(int x, int y)
         {
             DrawTextPro(font_fredoka, text, new Vector2(x, y), Vector2.Zero, 0F, font_size, 2, RAYWHITE);
         }
 
-        public void SetUnitsText(object text)
+        public void SetTextureFiltering(TextureFilter filter)
         {
-            this.text = text.ToString();
+            SetTextureFilter(font_fredoka.texture, filter);
+        }
+
+        public void SetUnitsText(object target)
+        {
+            this.text = target.ToString();
         }
 
         public void SetUnitsTextFontSize(int size)
         {
             font_size = size;
+        }
+
+        public int GetTextWidth()
+        {
+            return (int)MeasureTextEx(font_fredoka, text, font_size, 2).X;
+        }
+
+        public int GetTextHeight()
+        {
+            return (int)MeasureTextEx(font_fredoka, text, font_size, 2).Y;
         }
     }
 }

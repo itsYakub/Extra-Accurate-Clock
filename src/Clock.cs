@@ -1,16 +1,19 @@
 namespace ExtraAccurateClock
 {
     using System;
+    using Raylib_CsLo;
+    using static Raylib_CsLo.Raylib;
 
     class Clock
     {
-        private ClockUnit[] units = new ClockUnit[12];
+        public ClockUnit[] units = new ClockUnit[12];
 
         public Clock()
         {
             for (int i = 0; i < units.Length; i++)
             {
                 units[i] = new ClockUnit();
+                units[i].SetTextureFiltering(TextureFilter.TEXTURE_FILTER_TRILINEAR);
             }
         }
 
@@ -27,14 +30,17 @@ namespace ExtraAccurateClock
             units[8].SetUnitsText("Second: " + GetSecondTime());
             units[9].SetUnitsText("Milisecond: " + GetMilisecondTime());
             units[10].SetUnitsText("Microsecond: " + GetMicrosecondTime());
-            units[11].SetUnitsText(GetMileniumTime() + ":" + GetCenturyTime() + ":" + GetDecadeTime() + ":" + GetYearTime() + ":" + GetMonthTime() + ":" + GetDayTime() + ":" + GetHourTime() + ":" + GetMinuteTime() + ":" + GetSecondTime() + ":" + GetMilisecondTime() + ":" + GetMicrosecondTime());
+            units[11].SetUnitsText(GetMileniumTime() + "/" + GetCenturyTime() + "/" + GetDecadeTime() + " " + GetYearTime() + ":" + GetMonthTime() + ":" + GetDayTime() + " " + GetHourTime() + ":" + GetMinuteTime() + "." + GetSecondTime() + "(" + GetMilisecondTime() + " / " + GetMicrosecondTime() + ")");
         }
 
         public void Render()
         {
             for (int i = 0; i < units.Length; i++)
             {
-                units[i].Render(0, ClockUnit.font_size * i);
+                int x = (GetScreenWidth() - units[i].GetTextWidth()) / 2;
+                int y = ClockUnit.font_size * i;
+
+                units[i].Render(x, y);
             }
         }
 
