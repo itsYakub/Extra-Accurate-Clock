@@ -13,6 +13,8 @@ namespace ExtraAccurateClock
 
         private const string WINDOW_TITLE = "Extra Accurate Clock";
 
+        private bool debugEnabled = false;
+
         public App()
         {
             InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
@@ -40,6 +42,13 @@ namespace ExtraAccurateClock
         private void OnApplicationUpdate()
         {
             clock.Update();
+            EnableDebug();
+
+            if (debugEnabled)
+                SetWindowTitle(WINDOW_TITLE + " (FPS: " + GetFPS() + ")");
+
+            else
+                SetWindowTitle(WINDOW_TITLE);
         }
 
         private void OnApplicationRender()
@@ -50,6 +59,18 @@ namespace ExtraAccurateClock
         private void OnApplicationExit()
         {
             CloseWindow();
+        }
+
+        private void EnableDebug()
+        {
+            if (IsKeyPressed(KeyboardKey.KEY_F3))
+            {
+                if (debugEnabled)
+                    debugEnabled = false;
+
+                else if (!debugEnabled)
+                    debugEnabled = true;
+            }
         }
     }
 }
